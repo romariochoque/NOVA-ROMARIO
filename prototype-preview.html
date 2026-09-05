@@ -1,0 +1,1503 @@
+<!doctype html>
+<html lang="en" data-visualize-standalone>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; style-src 'unsafe-inline' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; img-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; font-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; media-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; worker-src blob:; connect-src blob: data:; frame-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Nova Movil Prototype</title>
+<style>:root{color-scheme:light dark;background:light-dark(rgb(255 255 255), rgb(24 24 24))}html,body{margin:0}body{box-sizing:border-box;padding:1rem;background:inherit}iframe{display:block;width:100%;height:calc(100vh - 2rem);margin:0 auto;border:0}</style>
+</head>
+<body>
+<iframe sandbox="allow-scripts" referrerpolicy="no-referrer" title="Nova Movil Prototype" srcdoc="&lt;!doctype html&gt;
+&lt;html lang=&quot;en&quot; data-visualize-standalone&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+&lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot;&gt;
+&lt;meta http-equiv=&quot;Content-Security-Policy&quot; content=&quot;default-src &#x27;none&#x27;; script-src &#x27;unsafe-inline&#x27; &#x27;unsafe-eval&#x27; &#x27;wasm-unsafe-eval&#x27; blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; style-src &#x27;unsafe-inline&#x27; blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; img-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; font-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; media-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; worker-src blob:; connect-src blob: data:; frame-src &#x27;none&#x27;; object-src &#x27;none&#x27;; base-uri &#x27;none&#x27;; form-action &#x27;none&#x27;&quot;&gt;
+&lt;title&gt;Nova Movil Prototype&lt;/title&gt;
+&lt;style&gt;:root {
+  color-scheme: light dark;
+  background-color: var(
+    --background,
+    var(--color-background-primary, light-dark(rgb(255 255 255), rgb(24 24 24)))
+  ) !important;
+
+  /* Agent-facing contract; keep in sync with SKILL.md. */
+  --background: var(
+    --color-background-primary,
+    light-dark(rgb(255 255 255), rgb(24 24 24))
+  );
+  --foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --card: color-mix(in oklab, var(--foreground) 5%, var(--background));
+  --card-foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --popover: var(
+    --color-background-secondary,
+    light-dark(rgb(255 255 255), rgb(45 45 45))
+  );
+  --popover-foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --primary: var(
+    --color-text-info,
+    light-dark(rgb(51 156 255), rgb(131 195 255))
+  );
+  --primary-foreground: var(
+    --color-text-inverse,
+    light-dark(rgb(255 255 255), rgb(13 13 13))
+  );
+  --secondary: var(
+    --color-background-secondary,
+    light-dark(rgb(255 255 255 / 96%), rgb(54 54 54 / 96%))
+  );
+  --secondary-foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --muted: color-mix(in srgb, var(--foreground) 10%, transparent);
+  --muted-foreground: var(
+    --color-text-secondary,
+    light-dark(rgb(26 28 31 / 49.4%), rgb(255 255 255 / 49.8%))
+  );
+  --accent: var(
+    --color-background-info,
+    light-dark(rgb(229 242 255), rgb(13 39 63))
+  );
+  --accent-foreground: var(
+    --color-text-info,
+    light-dark(rgb(51 156 255), rgb(131 195 255))
+  );
+  --destructive: var(
+    --color-text-warning,
+    light-dark(rgb(226 85 7), rgb(255 133 73))
+  );
+  --border: var(
+    --color-border-secondary,
+    light-dark(rgb(26 28 31 / 8%), rgb(255 255 255 / 8.2%))
+  );
+  --input: var(
+    --color-border-primary,
+    light-dark(
+      rgb(26 28 31 / 11.8%),
+      color-mix(in oklab, rgb(0 0 0) 10%, transparent)
+    )
+  );
+  --ring: var(
+    --color-ring-primary,
+    light-dark(rgb(51 156 255), rgb(131 195 255 / 76%))
+  );
+  --font-size-base: var(--font-text-md-size, 14px);
+  --blue: light-dark(rgb(51 156 255), rgb(51 156 255));
+  --orange: light-dark(rgb(226 85 7), rgb(251 106 34));
+  --green: light-dark(rgb(0 162 64), rgb(64 201 119));
+  --red: light-dark(rgb(224 46 42), rgb(255 103 100));
+  --purple: light-dark(rgb(146 79 247), rgb(173 123 249));
+  --yellow: light-dark(rgb(255 195 0), rgb(255 210 64));
+  --viz-series-1: var(--primary);
+  --viz-series-2: light-dark(rgb(243 136 59), rgb(245 154 86));
+  --viz-series-3: light-dark(rgb(93 201 119), rgb(116 213 139));
+  --viz-series-4: light-dark(rgb(235 119 177), rgb(240 143 192));
+  --viz-series-5: light-dark(rgb(155 121 236), rgb(170 145 239));
+  --viz-series-6: light-dark(rgb(58 185 177), rgb(90 203 194));
+
+  /* Internal implementation variables; not part of the agent contract. */
+  --font-sans: -apple-system, system-ui, &quot;Segoe UI&quot;, sans-serif;
+  --font-mono:
+    ui-monospace, SFMono-Regular, &quot;SF Mono&quot;, Menlo, Consolas, &quot;Liberation Mono&quot;,
+    monospace;
+  --font-size-normal: max(11px, var(--font-size-base));
+  --font-size-tooltip: calc(var(--font-size-base) - 1px);
+  --font-size-small: max(11px, calc(var(--font-size-base) - 2px));
+  --font-size-h1: calc(var(--font-size-normal) * 1.7142857143);
+  --font-size-h2: calc(var(--font-size-normal) * 1.4285714286);
+  --font-size-h3: calc(var(--font-size-normal) * 1.2857142857);
+  --font-weight-normal: 430;
+  --font-weight-medium: 500;
+  --icon-size: 16px;
+  --line-height-normal: calc(var(--font-size-normal) * 1.5);
+  --line-height-tooltip: calc(var(--font-size-tooltip) * 1.4285714286);
+  --line-height-small: calc(var(--font-size-small) + 4px);
+  --corner-shape: round;
+  --radius: var(--border-radius-lg, 10px);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-2xl: calc(var(--radius) * 1.6);
+  --radius-full: 9999px;
+  --shadow-sm: 0 1px 2px -1px rgb(0 0 0 / 8%);
+  --checkmark-image: url(&quot;data:image/svg+xml,%3Csvg xmlns=&#x27;http://www.w3.org/2000/svg&#x27; viewBox=&#x27;0 0 17 17&#x27;%3E%3Cpath d=&#x27;M12.8961 3.64101C13.1297 3.41418 13.4984 3.37523 13.7779 3.56581C14.0571 3.75635 14.1554 4.11331 14.0299 4.41347L13.9615 4.53847L7.71151 13.7045C7.59411 13.8767 7.4063 13.9877 7.19881 14.0072C6.99136 14.0267 6.78564 13.9533 6.63826 13.806L2.88826 10.056L2.79842 9.9457C2.6192 9.67407 2.64927 9.30496 2.88826 9.06581C3.12738 8.82669 3.49647 8.79676 3.76815 8.97597L3.8785 9.06581L7.03084 12.2182L12.8053 3.74941L12.8961 3.64101Z&#x27;/%3E%3C/svg%3E&quot;);
+
+  /* Legacy aliases; not part of the current agent contract. */
+  --viz-bg: transparent;
+  --viz-panel: var(--card);
+  --viz-border: var(--border);
+  --viz-text: var(--foreground);
+  --viz-muted: var(--muted-foreground);
+  --viz-accent: var(--primary);
+  --viz-accent-text: var(--primary-foreground);
+  --viz-accent-bg: var(--accent);
+  --viz-font-size: var(--font-size-base);
+  --viz-warning: var(--destructive);
+}
+
+:root[data-theme=&quot;light&quot;] {
+  color-scheme: light;
+}
+
+:root[data-theme=&quot;dark&quot;] {
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html &gt; body {
+  /* Preserve MCP aliases for older inline renderers without creating :root cycles. */
+  --color-background-primary: var(
+    --background,
+    light-dark(rgb(255 255 255), rgb(24 24 24))
+  );
+  --color-text-primary: var(
+    --foreground,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --color-border-secondary: var(
+    --border,
+    light-dark(rgb(26 28 31 / 8%), rgb(255 255 255 / 8.2%))
+  );
+
+  margin: 0;
+  padding: var(--visualize-paint-gutter, 0px);
+  color: var(--foreground);
+  background: transparent !important;
+  font-family: var(--font-sans) !important;
+  font-size: var(--font-size-normal);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-normal);
+}
+
+a {
+  color: color-mix(in srgb, var(--viz-accent) 80%, var(--viz-text) 20%);
+  cursor: pointer;
+  font-weight: var(--font-weight-medium, 500);
+  text-decoration: none;
+  text-underline-offset: 2px;
+}
+
+a:is(:hover, :focus-visible) {
+  text-decoration-line: underline;
+  text-decoration-style: dashed;
+  text-decoration-thickness: 0.5px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-block: 0;
+}
+
+h1 {
+  font-size: var(--font-size-h1);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+}
+
+h2 {
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+}
+
+h3,
+h4,
+h5,
+h6 {
+  font-size: var(--font-size-h3);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.3;
+}
+
+b,
+strong,
+th {
+  font-weight: var(--font-weight-medium);
+}
+
+code:not(pre code) {
+  display: inline;
+  padding: 1px 6px;
+  border-radius: var(--radius-sm);
+  corner-shape: var(--corner-shape);
+  background: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+  overflow-wrap: anywhere;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  word-break: break-word;
+}
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  color: var(--foreground);
+  font: inherit;
+  text-align: start;
+}
+
+.table :is(th, td) {
+  padding-block: 10px;
+  padding-inline: 0 24px;
+  overflow-wrap: anywhere;
+  border-bottom: 1px solid var(--border);
+  text-align: start;
+  vertical-align: top;
+}
+
+.table-responsive &gt; .table :is(th, td) {
+  overflow-wrap: break-word;
+}
+
+.table :is(th, td):last-child {
+  padding-inline-end: 0;
+}
+
+.table :is(caption, thead th) {
+  font-weight: 600;
+}
+
+.table thead th {
+  padding-block: 8px;
+  border-bottom-color: color-mix(in srgb, var(--foreground) 16%, transparent);
+}
+
+.table tbody tr:last-child :is(th, td) {
+  border-bottom: 0;
+}
+
+.table.table-sm :is(th, td) {
+  padding-block: 6px;
+}
+
+.table.table-sm :is(th, td):not(:last-child) {
+  padding-inline-end: 16px;
+}
+
+.table :is(.text-end, [align=&quot;right&quot;]) {
+  text-align: end;
+  font-variant-numeric: tabular-nums;
+}
+
+.table :is(.text-center, [align=&quot;center&quot;]) {
+  text-align: center;
+}
+
+.table .text-nowrap {
+  white-space: nowrap;
+}
+
+#widget {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  padding: 0;
+  background: transparent !important;
+}
+
+.card {
+  min-width: 0;
+  padding: 12px;
+  overflow: hidden;
+  overflow-wrap: break-word;
+  border-radius: var(--radius-2xl);
+  corner-shape: var(--corner-shape);
+  color: var(--card-foreground);
+  background: var(--card);
+}
+
+#widget &gt; :not(.card, .progress) {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.tooltip {
+  position: fixed;
+  z-index: 50;
+  top: 0;
+  left: 0;
+  width: max-content;
+  max-width: min(
+    20rem,
+    var(--tooltip-available-width, calc(100vw - 10px)),
+    calc(100vw - 10px)
+  );
+  max-height: min(
+    var(--tooltip-available-height, calc(100vh - 10px)),
+    calc(100vh - 10px)
+  );
+  padding: 4px 8px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  corner-shape: var(--corner-shape);
+  color: var(--popover-foreground);
+  background: var(--popover);
+  box-shadow: none;
+  font-size: var(--font-size-tooltip);
+  line-height: var(--line-height-tooltip);
+  overflow-wrap: break-word;
+  white-space: normal;
+  pointer-events: none;
+  user-select: none;
+}
+
+.viz-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(max(180px, 24%), 1fr));
+  gap: 10px;
+}
+
+.viz-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.viz-stat-value {
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+}
+
+.viz-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+hr {
+  width: 100%;
+  height: 1px;
+  margin-block: 6px;
+  border: 0;
+  background: var(--border);
+}
+
+.nav {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 4px;
+}
+
+.progress {
+  display: flex;
+  height: 8px;
+  margin-block: calc((var(--line-height-normal, 1.5em) - 8px) / 2);
+  overflow: hidden;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: var(--muted);
+}
+
+.progress-bar:only-child {
+  border-radius: var(--radius-full);
+}
+
+.progress-bar {
+  height: 100%;
+  flex-shrink: 0;
+  border: 0;
+  background: var(--viz-series-1);
+}
+
+.viz-badge {
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+  color: var(--accent-foreground);
+  background: var(--accent);
+  font-weight: var(--font-weight-medium);
+}
+
+small,
+.text-small,
+.viz-badge {
+  font-size: var(--font-size-small);
+  line-height: var(--line-height-small);
+}
+
+.text-muted {
+  color: var(--muted-foreground);
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.viz-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.viz-controls &gt; .form-label {
+  display: grid;
+  min-width: min(100%, 260px);
+  flex: 1 1 280px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 2px 12px;
+  margin-bottom: 0;
+}
+
+.viz-controls &gt; .form-label &gt; :is(.form-control, .form-range, .form-select) {
+  grid-column: 1 / -1;
+}
+
+.btn,
+.nav-link,
+.form-check-input,
+.form-control,
+.form-range,
+.form-select {
+  font: inherit;
+}
+
+.btn,
+.nav-link {
+  appearance: button;
+  display: inline-flex;
+  inline-size: fit-content;
+  max-inline-size: 100%;
+  min-height: 28px;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  margin: 0;
+  padding: 0 8px;
+  -webkit-app-region: no-drag;
+  border: 1px solid var(--input);
+  border-radius: var(--radius-lg);
+  corner-shape: var(--corner-shape);
+  color: var(--secondary-foreground);
+  background: var(--secondary);
+  cursor: var(--cursor-interaction, pointer);
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  user-select: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+.btn:is(.btn-block, .viz-tile) {
+  inline-size: 100%;
+}
+
+.btn.viz-tile {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
+a.btn {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn:not(:disabled):hover,
+.nav-link:not(:disabled):not([aria-disabled=&quot;true&quot;]):hover {
+  background: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.btn-primary {
+  border-color: transparent;
+  color: var(--primary-foreground);
+  background: var(--foreground);
+  background-clip: padding-box;
+}
+
+.btn-primary .text-muted {
+  color: color-mix(in srgb, var(--primary-foreground) 50%, transparent);
+}
+
+.btn-primary:not(:disabled):hover {
+  background: color-mix(in srgb, var(--foreground) 80%, transparent);
+  background-clip: padding-box;
+}
+
+.btn-ghost {
+  border-color: transparent;
+  color: var(--muted-foreground);
+  background: transparent;
+}
+
+.btn-ghost:not(:disabled):hover {
+  color: var(--foreground);
+  background: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.nav-pills .nav-link {
+  min-width: 0;
+  border-color: transparent;
+  color: var(--muted-foreground);
+  background: transparent;
+}
+
+.nav-justified .nav-link {
+  flex: 1 1 0;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
+.nav-pills .nav-link.active {
+  color: var(--foreground);
+  background: var(--muted);
+}
+
+.btn:disabled,
+.nav-link:disabled,
+.nav-link[aria-disabled=&quot;true&quot;] {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+[data-lucide] {
+  stroke-width: 1.6;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--foreground);
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  min-height: 28px;
+  padding: 0 8px;
+  outline: none;
+  border: 1px solid var(--input);
+  border-radius: var(--radius-lg);
+  corner-shape: var(--corner-shape);
+  color: var(--foreground);
+  background: var(--secondary);
+}
+
+.form-control::placeholder {
+  color: var(--muted-foreground);
+}
+
+.form-control[type=&quot;file&quot;] {
+  padding: 0;
+  overflow: hidden;
+  cursor: var(--cursor-interaction, pointer);
+}
+
+.form-control[type=&quot;file&quot;]::file-selector-button {
+  min-height: 26px;
+  margin-right: 8px;
+  padding: 0 8px;
+  border: 0;
+  border-right: 1px solid var(--input);
+  color: var(--secondary-foreground);
+  background: var(--secondary);
+  cursor: inherit;
+  font: inherit;
+}
+
+.form-control[type=&quot;file&quot;]:not(:disabled):hover::file-selector-button {
+  background: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.form-control-color[type=&quot;color&quot;] {
+  width: 40px;
+  height: 28px;
+  padding: 3px;
+  cursor: var(--cursor-interaction, pointer);
+}
+
+.form-control-color[type=&quot;color&quot;]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.form-control-color[type=&quot;color&quot;]::-webkit-color-swatch {
+  border: 0;
+  border-radius: calc(var(--radius-lg) - 4px);
+  corner-shape: var(--corner-shape);
+}
+
+textarea.form-control {
+  height: auto;
+  min-height: 72px;
+  padding: 8px 10px;
+  resize: vertical;
+}
+
+.form-control:focus-visible {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-control:disabled,
+.form-select:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.form-select {
+  appearance: none;
+  display: block;
+  width: 100%;
+  min-height: 28px;
+  margin: 0;
+  padding: 0 32px 0 8px;
+  outline: none;
+  border: 1px solid var(--input);
+  border-radius: var(--radius-lg);
+  corner-shape: var(--corner-shape);
+  color: var(--foreground);
+  background-color: var(--secondary);
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--muted-foreground) 50%),
+    linear-gradient(135deg, var(--muted-foreground) 50%, transparent 50%);
+  background-position:
+    calc(100% - 14px) 50%,
+    calc(100% - 10px) 50%;
+  background-repeat: no-repeat;
+  background-size: 4px 4px;
+  cursor: var(--cursor-interaction, default);
+}
+
+.form-select:not(:disabled):hover {
+  background-color: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.form-select:focus-visible {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-check {
+  display: flex;
+  min-height: 20px;
+  align-items: center;
+  gap: 6px;
+}
+
+.form-check-input {
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  flex: 0 0 auto;
+  margin: 0;
+  border: 1px solid var(--input);
+  color: var(--primary-foreground);
+  background-color: transparent;
+  cursor: var(--cursor-interaction, default);
+  transition:
+    background-color 150ms,
+    border-color 150ms,
+    box-shadow 150ms;
+}
+
+.form-check:not(.form-switch) .form-check-input[type=&quot;checkbox&quot;] {
+  border-color: var(--input);
+  border-radius: var(--radius-sm);
+  corner-shape: var(--corner-shape);
+  background-color: var(--secondary);
+  box-shadow: var(--shadow-sm);
+}
+
+.form-check:not(.form-switch)
+  .form-check-input:not(:disabled):not(:checked):hover {
+  background-color: var(--card);
+}
+
+.form-check:not(.form-switch) .form-check-input[type=&quot;checkbox&quot;]:checked {
+  border-color: var(--primary);
+  background-color: var(--primary);
+}
+
+.form-check:not(.form-switch)
+  .form-check-input[type=&quot;checkbox&quot;]:checked::before {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--primary-foreground);
+  content: &quot;&quot;;
+  mask: var(--checkmark-image) center / 12px 12px no-repeat;
+}
+
+.form-check-input[type=&quot;radio&quot;] {
+  width: 14px;
+  height: 14px;
+  border-radius: var(--radius-full);
+}
+
+.form-check-input[type=&quot;radio&quot;]:checked {
+  border: 2px solid var(--primary);
+  background:
+    radial-gradient(circle, var(--primary-foreground) 0 2.5px, transparent 3px),
+    var(--primary);
+}
+
+.form-check:not(.form-switch) .form-check-input:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+.form-check:not(.form-switch) .form-check-input:disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.form-check:not(.form-switch) .form-check-input:disabled + .form-check-label {
+  cursor: not-allowed;
+}
+
+.form-switch .form-check-input:disabled,
+.form-switch .form-check-input:disabled + .form-check-label {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.form-check-label {
+  color: var(--foreground);
+  cursor: var(--cursor-interaction, default);
+}
+
+.form-switch .form-check-input {
+  position: relative;
+  width: 32px;
+  height: 20px;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: var(--muted);
+  box-shadow: none;
+  transition: background-color 200ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.form-switch .form-check-input::before {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  box-sizing: border-box;
+  border: 1px solid light-dark(var(--primary-foreground), var(--foreground));
+  border-radius: var(--radius-full);
+  background: light-dark(var(--primary-foreground), var(--foreground));
+  box-shadow: var(--shadow-sm);
+  content: &quot;&quot;;
+  transform: translate(2px, -50%);
+  transition: transform 200ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.form-switch .form-check-input:checked {
+  background: var(--primary);
+}
+
+.form-switch .form-check-input:checked::before {
+  transform: translate(14px, -50%);
+}
+
+.form-switch .form-check-input:focus-visible {
+  box-shadow: 0 0 0 2px var(--ring);
+}
+
+.form-range {
+  appearance: none;
+  display: block;
+  width: 100%;
+  height: 28px;
+  flex: 1;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: 0;
+  accent-color: var(--primary);
+  background: linear-gradient(
+      color-mix(in srgb, var(--foreground) 7%, transparent),
+      color-mix(in srgb, var(--foreground) 7%, transparent)
+    )
+    center / 100% 2px no-repeat;
+}
+
+.form-range::-webkit-slider-runnable-track {
+  height: 28px;
+  background: transparent;
+}
+
+.form-range::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  margin-top: 4px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  background: light-dark(var(--primary-foreground), var(--foreground));
+}
+
+.form-range:focus-visible::-webkit-slider-thumb {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-range::-moz-range-track {
+  height: 28px;
+  background: transparent;
+}
+
+.form-range::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  background: light-dark(var(--primary-foreground), var(--foreground));
+}
+
+.form-range:focus-visible::-moz-range-thumb {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-range:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.btn:not(.btn-primary, .viz-tile):is(
+  [aria-pressed=&quot;true&quot;],
+  [aria-selected=&quot;true&quot;],
+  .is-selected
+) {
+  border-color: var(--primary);
+  color: var(--primary-foreground);
+  background: var(--primary);
+}
+
+.btn.viz-tile:is([aria-pressed=&quot;true&quot;], [aria-selected=&quot;true&quot;], .is-selected) {
+  border-color: var(--primary);
+  box-shadow: inset 0 0 0 1px var(--primary);
+}
+
+.btn:focus-visible,
+.nav-link:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+@media (pointer: coarse) {
+  .btn,
+  .nav-link,
+  .form-control,
+  .form-select {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  /* Keep small-screen WebKit from zooming when a text field receives focus. */
+  .form-control,
+  .form-select {
+    font-size: max(16px, var(--font-size-normal));
+  }
+
+  .form-control[type=&quot;file&quot;]::file-selector-button {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .form-control-color[type=&quot;color&quot;] {
+    width: 44px;
+    height: 44px;
+  }
+
+  .form-control:is(
+    [type=&quot;date&quot;],
+    [type=&quot;datetime-local&quot;],
+    [type=&quot;month&quot;],
+    [type=&quot;time&quot;],
+    [type=&quot;week&quot;]
+  ) {
+    min-width: 0;
+    max-width: 100%;
+    padding-block: 8px;
+  }
+
+  .form-check {
+    min-height: 44px;
+    padding-inline: 15px;
+  }
+
+  .form-check-input {
+    position: relative;
+  }
+
+  .form-check-input::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 44px;
+    height: 44px;
+    content: &quot;&quot;;
+    transform: translate(-50%, -50%);
+  }
+
+  .form-check-label {
+    display: inline-flex;
+    min-width: 44px;
+    min-height: 44px;
+    align-items: center;
+  }
+
+  .form-range {
+    height: 44px;
+    touch-action: pan-y;
+  }
+
+  .form-range::-webkit-slider-runnable-track {
+    height: 44px;
+  }
+
+  .form-range::-moz-range-track {
+    height: 44px;
+  }
+
+  .form-range::-webkit-slider-thumb {
+    margin-top: 12px;
+  }
+}
+
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+#widget &gt; svg {
+  width: 100%;
+}
+
+/* Model-authored chart rules can otherwise stretch icons after these styles load. */
+svg.lucide {
+  display: block;
+  width: var(--icon-size) !important;
+  height: var(--icon-size) !important;
+  flex: none;
+  margin: 0 !important;
+  stroke-width: 1.6;
+}
+
+.text-warning,
+.text-destructive {
+  color: var(--destructive);
+}
+
+html&gt;body{padding:0}&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;main id=&quot;nova-phone-prototype&quot; aria-label=&quot;Prototipo de tienda NOVA MÓVIL&quot;&gt;
+  &lt;style&gt;
+    #nova-phone-prototype{--nm-bg:#080b15;--nm-surface:#11172a;--nm-surface-2:#19213a;--nm-text:#f7f8ff;--nm-muted:#aeb8d6;--nm-accent:#7c5cff;--nm-accent-2:#40e0c4;--nm-line:rgba(255,255,255,.12);font-family:Inter,ui-sans-serif,system-ui,sans-serif;color:var(--nm-text);background:radial-gradient(circle at 88% 8%,rgba(124,92,255,.32),transparent 27%),radial-gradient(circle at 8% 45%,rgba(64,224,196,.16),transparent 23%),var(--nm-bg);padding:20px;border-radius:22px;overflow:hidden}
+    #nova-phone-prototype *{box-sizing:border-box} #nova-phone-prototype button{font:inherit;cursor:pointer} #nova-phone-prototype .nm-shell{max-width:980px;margin:auto} #nova-phone-prototype .nm-top{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:4px 0 24px} #nova-phone-prototype .nm-logo{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.08em} #nova-phone-prototype .nm-mark{display:grid;place-items:center;width:35px;height:35px;border-radius:12px;background:linear-gradient(135deg,var(--nm-accent),var(--nm-accent-2));color:#07101c;font-size:17px;box-shadow:0 8px 25px rgba(124,92,255,.4)} #nova-phone-prototype .nm-top small{color:var(--nm-muted);font-size:12px}
+    #nova-phone-prototype .nm-nav{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:27px} #nova-phone-prototype .nm-brand{border:1px solid var(--nm-line);background:rgba(255,255,255,.05);color:var(--nm-muted);padding:9px 13px;border-radius:99px;font-size:13px} #nova-phone-prototype .nm-brand[aria-pressed=&quot;true&quot;]{background:var(--nm-accent);color:white;border-color:var(--nm-accent)}
+    #nova-phone-prototype .nm-hero{display:grid;grid-template-columns:1.25fr .75fr;gap:18px;align-items:stretch;margin-bottom:27px} #nova-phone-prototype .nm-copy{padding:27px;background:linear-gradient(140deg,rgba(255,255,255,.09),rgba(255,255,255,.025));border:1px solid var(--nm-line);border-radius:20px;min-height:220px} #nova-phone-prototype .nm-kicker{color:var(--nm-accent-2);font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase} #nova-phone-prototype h1{font-size:clamp(28px,4vw,46px);line-height:1.02;letter-spacing:-.045em;margin:13px 0 13px} #nova-phone-prototype .nm-copy p{color:var(--nm-muted);max-width:540px;margin:0;line-height:1.5} #nova-phone-prototype .nm-promise{display:flex;align-items:flex-end;justify-content:space-between;padding:24px;background:linear-gradient(150deg,var(--nm-accent),#3730a3);border-radius:20px;overflow:hidden;position:relative} #nova-phone-prototype .nm-promise:after{content:&quot;&quot;;position:absolute;width:150px;height:150px;border:1px solid rgba(255,255,255,.3);border-radius:50%;right:-35px;top:-48px} #nova-phone-prototype .nm-promise strong{font-size:24px;display:block;position:relative;z-index:1} #nova-phone-prototype .nm-promise span{font-size:13px;display:block;margin-top:7px;opacity:.86;position:relative;z-index:1}
+    #nova-phone-prototype .nm-heading{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin:0 0 14px} #nova-phone-prototype h2{font-size:20px;margin:0;letter-spacing:-.02em} #nova-phone-prototype .nm-count{color:var(--nm-muted);font-size:13px} #nova-phone-prototype .nm-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px} #nova-phone-prototype .nm-product{border:1px solid var(--nm-line);background:var(--nm-surface);border-radius:17px;overflow:hidden;min-width:0} #nova-phone-prototype .nm-phone-stage{height:152px;display:grid;place-items:center;background:linear-gradient(135deg,#2b2148,#10172b);position:relative} #nova-phone-prototype .nm-phone-stage:before{content:&quot;&quot;;position:absolute;width:110px;height:110px;background:radial-gradient(circle,var(--nm-accent),transparent 68%);opacity:.32;filter:blur(10px)} #nova-phone-prototype .nm-phone{position:relative;width:67px;height:127px;border:4px solid #313b56;border-radius:15px;background:linear-gradient(150deg,var(--phone-1),var(--phone-2));box-shadow:12px 14px 24px rgba(0,0,0,.38);transform:rotate(-7deg);z-index:1} #nova-phone-prototype .nm-phone:before{content:&quot;&quot;;position:absolute;left:9px;top:10px;width:19px;height:19px;border-radius:50%;background:#141725;box-shadow:0 25px #141725,25px 0 #141725} #nova-phone-prototype .nm-phone:after{content:&quot;&quot;;position:absolute;width:24px;height:3px;border-radius:8px;background:rgba(255,255,255,.45);left:18px;bottom:8px} #nova-phone-prototype .nm-info{padding:14px} #nova-phone-prototype .nm-tag{color:var(--nm-accent-2);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em} #nova-phone-prototype h3{font-size:15px;margin:7px 0 3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis} #nova-phone-prototype .nm-spec{color:var(--nm-muted);font-size:12px;margin:0 0 13px} #nova-phone-prototype .nm-meta{display:flex;justify-content:space-between;align-items:center;gap:6px} #nova-phone-prototype .nm-price{font-weight:800;font-size:17px} #nova-phone-prototype .nm-stock{font-size:11px;color:#b9f7e8;background:rgba(64,224,196,.12);padding:5px 7px;border-radius:99px;white-space:nowrap} #nova-phone-prototype .nm-view{width:100%;border:0;background:transparent;color:var(--nm-text);padding:13px 14px;border-top:1px solid var(--nm-line);text-align:left;font-size:13px;font-weight:700} #nova-phone-prototype .nm-view:hover{background:rgba(255,255,255,.06)}
+    #nova-phone-prototype .nm-detail{margin-top:24px;display:grid;grid-template-columns:110px 1fr auto;gap:20px;align-items:center;padding:18px;border:1px solid rgba(124,92,255,.55);background:linear-gradient(100deg,rgba(124,92,255,.17),rgba(17,23,42,.9));border-radius:18px} #nova-phone-prototype .nm-mini{height:110px;display:grid;place-items:center} #nova-phone-prototype .nm-mini .nm-phone{transform:rotate(6deg) scale(.72)} #nova-phone-prototype .nm-detail h2{margin:4px 0 7px} #nova-phone-prototype .nm-detail p{color:var(--nm-muted);font-size:13px;line-height:1.45;margin:0} #nova-phone-prototype .nm-cta{border:0;background:var(--nm-accent-2);color:#061412;border-radius:12px;padding:13px 16px;font-weight:800;white-space:nowrap} #nova-phone-prototype .nm-footnote{color:var(--nm-muted);font-size:11px;margin:16px 1px 0}
+    #nova-phone-prototype.nm-light{--nm-bg:#eef3ff;--nm-surface:#fff;--nm-surface-2:#f6f8ff;--nm-text:#10172d;--nm-muted:#5c6680;--nm-line:rgba(22,32,64,.14)} #nova-phone-prototype.nm-light .nm-phone-stage{background:linear-gradient(135deg,#dfe8ff,#f4f1ff)} #nova-phone-prototype.nm-light .nm-product{box-shadow:0 10px 25px rgba(20,35,80,.08)}
+    @media(max-width:650px){#nova-phone-prototype{padding:15px;border-radius:16px}#nova-phone-prototype .nm-top{padding-bottom:16px}#nova-phone-prototype .nm-hero{grid-template-columns:1fr}#nova-phone-prototype .nm-promise{min-height:115px}#nova-phone-prototype .nm-grid{grid-template-columns:1fr 1fr}#nova-phone-prototype .nm-detail{grid-template-columns:75px 1fr;gap:12px}#nova-phone-prototype .nm-cta{grid-column:1/-1;width:100%}} @media(max-width:380px){#nova-phone-prototype .nm-grid{grid-template-columns:1fr}#nova-phone-prototype .nm-top small{display:none}}
+    /* Paleta NOVA MÓVIL: púrpura imperial, oro antiguo y mármol nocturno. */
+    #nova-phone-prototype{--nm-bg:#12100f;--nm-surface:#211b1b;--nm-surface-2:#302526;--nm-text:#fbf4e6;--nm-muted:#cbbfae;--nm-accent:#6e1f3c;--nm-accent-2:#d4aa58;--nm-line:rgba(212,170,88,.27);background:radial-gradient(circle at 88% 8%,rgba(110,31,60,.68),transparent 29%),radial-gradient(circle at 8% 45%,rgba(212,170,88,.14),transparent 25%),linear-gradient(135deg,#17100f,#0d0c0d)}
+    #nova-phone-prototype .nm-mark{background:linear-gradient(135deg,#f0d27d,#b57d2c);color:#3b1625;box-shadow:0 8px 25px rgba(212,170,88,.3)}
+    #nova-phone-prototype .nm-brand[aria-pressed=&quot;true&quot;]{background:linear-gradient(135deg,#7e2948,#53142d);border-color:#d4aa58}
+    #nova-phone-prototype .nm-promise{background:linear-gradient(145deg,#6e1f3c,#32111e)}
+    #nova-phone-prototype .nm-phone-stage{background:linear-gradient(135deg,#37252c,#171415)}
+    #nova-phone-prototype .nm-detail{border-color:rgba(212,170,88,.67);background:linear-gradient(100deg,rgba(110,31,60,.37),rgba(33,27,27,.96))}
+    #nova-phone-prototype .nm-cta{background:linear-gradient(135deg,#e3bd69,#b88232);color:#261415}
+    /* Paleta final: blanco limpio y rojo NOVA. */
+    #nova-phone-prototype{--nm-bg:#f4f5f7;--nm-surface:#ffffff;--nm-surface-2:#f8f8fa;--nm-text:#1d2027;--nm-muted:#68707c;--nm-accent:#c91f36;--nm-accent-2:#9d172a;--nm-line:rgba(29,32,39,.13);background:radial-gradient(circle at 87% 5%,rgba(201,31,54,.17),transparent 28%),linear-gradient(145deg,#ffffff,#f1f2f5)}
+    #nova-phone-prototype .nm-mark{background:linear-gradient(135deg,#e63650,#a10f25);color:#fff;box-shadow:0 8px 25px rgba(201,31,54,.25)}
+    #nova-phone-prototype .nm-brand{background:#fff;color:#4e5661} #nova-phone-prototype .nm-brand[aria-pressed=&quot;true&quot;]{background:linear-gradient(135deg,#d62b43,#a41228);border-color:#a41228;color:#fff}
+    #nova-phone-prototype .nm-copy{background:rgba(255,255,255,.84);border-color:rgba(29,32,39,.1)}
+    #nova-phone-prototype .nm-promise{background:linear-gradient(145deg,#d52c45,#941126)}
+    #nova-phone-prototype .nm-phone-stage{background:linear-gradient(135deg,#f9ecee,#f1f2f5)}
+    #nova-phone-prototype .nm-product{box-shadow:0 10px 25px rgba(35,39,48,.07)}
+    #nova-phone-prototype .nm-detail{border-color:rgba(201,31,54,.34);background:linear-gradient(100deg,rgba(201,31,54,.11),rgba(255,255,255,.93))}
+    #nova-phone-prototype .nm-cta{background:linear-gradient(135deg,#d72c45,#a41128);color:#fff}
+    /* Blanco, rojo puro y negro — sin tonos rosados. */
+    #nova-phone-prototype{--nm-bg:#f6f6f6;--nm-surface:#ffffff;--nm-surface-2:#f1f1f1;--nm-text:#111111;--nm-muted:#555555;--nm-accent:#d40020;--nm-accent-2:#111111;--nm-line:rgba(0,0,0,.14);background:radial-gradient(circle at 87% 5%,rgba(212,0,32,.13),transparent 27%),linear-gradient(145deg,#ffffff,#eeeeee)}
+    #nova-phone-prototype .nm-mark{background:#d40020;color:#fff;box-shadow:0 8px 25px rgba(0,0,0,.2)}
+    #nova-phone-prototype .nm-brand{background:#fff;color:#111;border-color:rgba(0,0,0,.16)} #nova-phone-prototype .nm-brand[aria-pressed=&quot;true&quot;]{background:#d40020;border-color:#d40020;color:#fff}
+    #nova-phone-prototype .nm-copy{background:#fff;border-color:rgba(0,0,0,.1)}
+    #nova-phone-prototype .nm-promise{background:linear-gradient(145deg,#d40020,#850014)}
+    #nova-phone-prototype .nm-phone-stage{background:linear-gradient(135deg,#fff,#e8e8e8)}
+    #nova-phone-prototype .nm-product{box-shadow:0 10px 25px rgba(0,0,0,.08)}
+    #nova-phone-prototype .nm-detail{border-color:rgba(212,0,32,.42);background:linear-gradient(100deg,rgba(212,0,32,.08),#fff)}
+    #nova-phone-prototype .nm-cta{background:#111;color:#fff}
+    #nova-phone-prototype .nm-brand-label{font-size:12px;font-weight:700;color:#111;text-transform:uppercase;letter-spacing:.08em;margin:0 0 9px}
+    #nova-phone-prototype .nm-model-page{display:none;grid-template-columns:.85fr 1.15fr;gap:28px;align-items:center;margin-top:24px;padding:24px;background:#fff;border:1px solid rgba(0,0,0,.15);border-radius:20px;box-shadow:0 16px 35px rgba(0,0,0,.12)}
+    #nova-phone-prototype .nm-model-page.nm-model-open{display:grid} #nova-phone-prototype .nm-close-model{grid-column:1/-1;justify-self:start;padding:0;border:0;background:transparent;color:#111;font-weight:700}
+    #nova-phone-prototype .nm-model-visual{min-height:270px;display:grid;place-items:center;background:linear-gradient(135deg,#fff,#e8e8e8);border-radius:15px;overflow:hidden} #nova-phone-prototype .nm-model-visual .nm-phone{transform:rotate(-7deg) scale(1.5)}
+    #nova-phone-prototype .nm-model-copy h2{font-size:32px;margin:7px 0 11px;letter-spacing:-.04em} #nova-phone-prototype .nm-model-copy p{color:#555;line-height:1.5;margin:0 0 16px} #nova-phone-prototype .nm-model-facts{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px} #nova-phone-prototype .nm-model-facts span{background:#f0f0f0;color:#111;padding:7px 9px;border-radius:8px;font-size:13px;font-weight:700} #nova-phone-prototype .nm-model-price{display:block;font-size:25px;margin:0 0 16px}
+    @media(max-width:650px){#nova-phone-prototype .nm-model-page{grid-template-columns:1fr;gap:17px;padding:17px}#nova-phone-prototype .nm-model-visual{min-height:210px}#nova-phone-prototype .nm-model-copy h2{font-size:27px}}
+    #nova-phone-prototype .nm-spec-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:0 0 13px} #nova-phone-prototype .nm-spec-grid div{background:#f1f1f1;padding:9px;border-radius:9px} #nova-phone-prototype .nm-spec-grid small{display:block;color:#555;font-size:10px;text-transform:uppercase;letter-spacing:.04em;margin-bottom:3px} #nova-phone-prototype .nm-spec-grid b{display:block;font-size:12px;line-height:1.25} #nova-phone-prototype .nm-record{border-left:3px solid #d40020;padding-left:9px;font-size:12px;color:#222;margin:0 0 14px}
+    @media(max-width:380px){#nova-phone-prototype .nm-spec-grid{grid-template-columns:1fr}}
+    /* Identidad científica: órbitas, retícula de laboratorio y datos precisos. */
+    #nova-phone-prototype{background-image:radial-gradient(circle at 88% 8%,rgba(212,0,32,.13),transparent 28%),linear-gradient(rgba(0,0,0,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,.045) 1px,transparent 1px),linear-gradient(145deg,#fff,#ededed);background-size:auto,22px 22px,22px 22px,auto}
+    #nova-phone-prototype .nm-logo{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:.04em}#nova-phone-prototype .nm-mark{border-radius:50%;position:relative;isolation:isolate}#nova-phone-prototype .nm-mark:after{content:&quot;&quot;;position:absolute;width:47px;height:13px;border:2px solid #111;border-radius:50%;transform:rotate(-38deg);z-index:-1}#nova-phone-prototype .nm-kicker,#nova-phone-prototype .nm-brand-label{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:.1em}#nova-phone-prototype .nm-copy{background-image:linear-gradient(90deg,rgba(212,0,32,.04),transparent 32%)}#nova-phone-prototype .nm-phone-stage:before{background:radial-gradient(circle,#d40020,transparent 68%);opacity:.18}#nova-phone-prototype .nm-spec-grid div{border-left:2px solid #d40020;border-radius:0}.nm-top small{font-family:ui-monospace,SFMono-Regular,Consolas,monospace}
+  &lt;/style&gt;
+  &lt;div class=&quot;nm-shell&quot;&gt;
+    &lt;header class=&quot;nm-top&quot;&gt;&lt;div class=&quot;nm-logo&quot;&gt;&lt;span class=&quot;nm-mark&quot;&gt;N&lt;/span&gt; NOVA MÓVIL&lt;/div&gt;&lt;small&gt;Celulares seleccionados · Pago coordinado&lt;/small&gt;&lt;/header&gt;
+    &lt;div class=&quot;nm-brand-label&quot;&gt;Elige la marca que quieres explorar&lt;/div&gt;&lt;nav class=&quot;nm-nav&quot; aria-label=&quot;Marcas disponibles&quot; id=&quot;nm-brands&quot;&gt;&lt;/nav&gt;
+    &lt;section class=&quot;nm-hero&quot;&gt;&lt;div class=&quot;nm-copy&quot;&gt;&lt;span class=&quot;nm-kicker&quot; id=&quot;nm-kicker&quot;&gt;Selección Honor&lt;/span&gt;&lt;h1 id=&quot;nm-title&quot;&gt;Tecnología que se siente tuya.&lt;/h1&gt;&lt;p&gt;Explora modelos disponibles, compara memoria y conoce el stock antes de reservar.&lt;/p&gt;&lt;/div&gt;&lt;aside class=&quot;nm-promise&quot;&gt;&lt;div&gt;&lt;strong&gt;Stock real,&lt;br&gt;decisión simple.&lt;/strong&gt;&lt;span&gt;Reserva por mensaje · Sin pagos con tarjeta&lt;/span&gt;&lt;/div&gt;&lt;/aside&gt;&lt;/section&gt;
+    &lt;section aria-labelledby=&quot;nm-products-title&quot;&gt;&lt;div class=&quot;nm-heading&quot;&gt;&lt;h2 id=&quot;nm-products-title&quot;&gt;Modelos disponibles&lt;/h2&gt;&lt;span class=&quot;nm-count&quot; id=&quot;nm-count&quot;&gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;nm-grid&quot; id=&quot;nm-grid&quot; aria-live=&quot;polite&quot;&gt;&lt;/div&gt;&lt;/section&gt;
+    &lt;section class=&quot;nm-detail&quot; id=&quot;nm-detail&quot; aria-live=&quot;polite&quot;&gt;&lt;/section&gt;
+    &lt;p class=&quot;nm-footnote&quot;&gt;Prototipo: el panel de administración final permitirá actualizar stock, precio, texto e imágenes sin tocar código.&lt;/p&gt;
+    &lt;section class=&quot;nm-model-page&quot; id=&quot;nm-model-page&quot; aria-live=&quot;polite&quot;&gt;
+      &lt;button class=&quot;nm-close-model&quot; type=&quot;button&quot; id=&quot;nm-close-model&quot;&gt;← Volver a los modelos&lt;/button&gt;
+      &lt;div class=&quot;nm-model-visual&quot; id=&quot;nm-model-visual&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;nm-model-copy&quot;&gt;&lt;span class=&quot;nm-tag&quot;&gt;Ficha completa · ejemplo&lt;/span&gt;&lt;h2 id=&quot;nm-model-name&quot;&gt;HONOR Magic8 Lite&lt;/h2&gt;&lt;p id=&quot;nm-model-description&quot;&gt;Un modelo destacado que demuestra el nivel de detalle de cada ficha.&lt;/p&gt;&lt;div class=&quot;nm-model-facts&quot;&gt;&lt;span id=&quot;nm-model-memory&quot;&gt;8 GB / 256 GB&lt;/span&gt;&lt;span id=&quot;nm-model-stock&quot;&gt;Disponible por confirmar&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;nm-spec-grid&quot;&gt;&lt;div&gt;&lt;small&gt;Procesador&lt;/small&gt;&lt;b id=&quot;nm-cpu&quot;&gt;Snapdragon 6 Gen 4&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;small&gt;Cámara principal&lt;/small&gt;&lt;b id=&quot;nm-main-camera&quot;&gt;108 MP con OIS + 5 MP&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;small&gt;Cámara frontal&lt;/small&gt;&lt;b id=&quot;nm-front-camera&quot;&gt;16 MP&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;small&gt;Batería y carga&lt;/small&gt;&lt;b id=&quot;nm-battery&quot;&gt;8.300 mAh · 66 W&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;small&gt;Pantalla&lt;/small&gt;&lt;b id=&quot;nm-screen&quot;&gt;AMOLED · 120 Hz&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;small&gt;Protección&lt;/small&gt;&lt;b id=&quot;nm-resistance&quot;&gt;IP68 · IP69 · IP69K&lt;/b&gt;&lt;/div&gt;&lt;/div&gt;&lt;p class=&quot;nm-record&quot; id=&quot;nm-record&quot;&gt;Récord Guinness: mayor caída de un smartphone, 6,133 m. La certificación corresponde al HONOR X9d, modelo idéntico con otro nombre.&lt;/p&gt;&lt;strong class=&quot;nm-model-price&quot; id=&quot;nm-model-price&quot;&gt;Bs 4.120&lt;/strong&gt;&lt;button class=&quot;nm-cta&quot; type=&quot;button&quot;&gt;Reservar por WhatsApp&lt;/button&gt;&lt;/div&gt;
+    &lt;/section&gt;
+  &lt;/div&gt;
+  &lt;script&gt;
+    (()=&gt;{const root=document.getElementById(&#x27;nova-phone-prototype&#x27;);const catalog={Honor:[[&#x27;X5C Plus&#x27;,&#x27;6 GB / 256 GB&#x27;,&#x27;Bs 1.830&#x27;,&#x27;12 disponibles&#x27;,&#x27;Diseñado para el día a día con amplio espacio para fotos y apps.&#x27;,&#x27;#e7b273&#x27;,&#x27;#8d4e37&#x27;],[&#x27;X7E&#x27;,&#x27;6 GB / 256 GB&#x27;,&#x27;Bs 2.550&#x27;,&#x27;7 disponibles&#x27;,&#x27;Un salto de pantalla y capacidad para quien quiere más sin ir a gama alta.&#x27;,&#x27;#b7d6f0&#x27;,&#x27;#3c6389&#x27;],[&#x27;X8D&#x27;,&#x27;8 GB / 256 GB&#x27;,&#x27;Bs 2.910&#x27;,&#x27;4 disponibles&#x27;,&#x27;Más memoria para multitarea fluida y una experiencia más completa.&#x27;,&#x27;#d6d4ff&#x27;,&#x27;#5040a3&#x27;]],Infinix:[[&#x27;Smart 20&#x27;,&#x27;4 GB / 128 GB&#x27;,&#x27;Bs 1.280&#x27;,&#x27;15 disponibles&#x27;,&#x27;La puerta de entrada práctica para llamadas, redes y tareas esenciales.&#x27;,&#x27;#b1d5cd&#x27;,&#x27;#267369&#x27;],[&#x27;Hot 60 Pro+&#x27;,&#x27;8 GB / 256 GB&#x27;,&#x27;Bs 2.530&#x27;,&#x27;6 disponibles&#x27;,&#x27;Rendimiento y almacenamiento generoso para un uso más exigente.&#x27;,&#x27;#f6d0a0&#x27;,&#x27;#c06639&#x27;],[&#x27;Note 60 Pro&#x27;,&#x27;8 GB / 256 GB&#x27;,&#x27;Bs 3.940&#x27;,&#x27;3 disponibles&#x27;,&#x27;Modelo con mayor capacidad para productividad y entretenimiento.&#x27;,&#x27;#c2c8dd&#x27;,&#x27;#535b78&#x27;]],Samsung:[[&#x27;A07&#x27;,&#x27;4 GB / 128 GB&#x27;,&#x27;Bs 1.520&#x27;,&#x27;11 disponibles&#x27;,&#x27;Una opción Samsung sencilla y confiable para la rutina diaria.&#x27;,&#x27;#cfe9ff&#x27;,&#x27;#529fd1&#x27;],[&#x27;A16&#x27;,&#x27;4 GB / 128 GB&#x27;,&#x27;Bs 1.740&#x27;,&#x27;9 disponibles&#x27;,&#x27;Equilibrio entre precio, marca y almacenamiento para uso cotidiano.&#x27;,&#x27;#9ce0bc&#x27;,&#x27;#2d8b5e&#x27;],[&#x27;A17&#x27;,&#x27;6 GB / 128 GB&#x27;,&#x27;Bs 2.310&#x27;,&#x27;5 disponibles&#x27;,&#x27;Más RAM para abrir varias aplicaciones con comodidad.&#x27;,&#x27;#ffc4a1&#x27;,&#x27;#b75a38&#x27;]],Tecno:[[&#x27;Spark Go3&#x27;,&#x27;4 GB / 128 GB&#x27;,&#x27;Bs 1.270&#x27;,&#x27;13 disponibles&#x27;,&#x27;Una alternativa económica con buena capacidad de almacenamiento.&#x27;,&#x27;#f6c9e7&#x27;,&#x27;#bc5796&#x27;],[&#x27;Pova 7 4G&#x27;,&#x27;8 GB / 256 GB&#x27;,&#x27;Bs 2.430&#x27;,&#x27;8 disponibles&#x27;,&#x27;Pensado para disfrutar juegos, contenido y mucha memoria.&#x27;,&#x27;#b5baf6&#x27;,&#x27;#424bb6&#x27;],[&#x27;Camon 50 Ultra&#x27;,&#x27;8 GB / 256 GB&#x27;,&#x27;Bs 4.670&#x27;,&#x27;2 disponibles&#x27;,&#x27;La propuesta más premium de la línea, para quien busca destacar.&#x27;,&#x27;#dbcfac&#x27;,&#x27;#8d7332&#x27;]],Xiaomi:[[&#x27;Redmi A7 Pro&#x27;,&#x27;4 GB / 128 GB&#x27;,&#x27;Bs 1.340&#x27;,&#x27;14 disponibles&#x27;,&#x27;Una opción accesible con espacio suficiente para lo esencial.&#x27;,&#x27;#d5edb6&#x27;,&#x27;#5c9f3d&#x27;],[&#x27;Redmi Note 15&#x27;,&#x27;6 GB / 128 GB&#x27;,&#x27;Bs 2.130&#x27;,&#x27;10 disponibles&#x27;,&#x27;Balance entre memoria y precio, ideal para el uso diario.&#x27;,&#x27;#b6e0e6&#x27;,&#x27;#267d89&#x27;],[&#x27;Redmi Note 15 Pro 5G&#x27;,&#x27;8 GB / 256 GB&#x27;,&#x27;Bs 3.520&#x27;,&#x27;4 disponibles&#x27;,&#x27;Más capacidad y conectividad para usuarios que quieren dar un paso más.&#x27;,&#x27;#f1c8c8&#x27;,&#x27;#b64b4b&#x27;]]};let brand=&#x27;Honor&#x27;,selected=0;const brands=document.getElementById(&#x27;nm-brands&#x27;),grid=document.getElementById(&#x27;nm-grid&#x27;),detail=document.getElementById(&#x27;nm-detail&#x27;);function phone(colors,mini=false){return `&lt;div class=&quot;${mini?&#x27;nm-mini&#x27;:&#x27;nm-phone-stage&#x27;}&quot;&gt;&lt;div class=&quot;nm-phone&quot; style=&quot;--phone-1:${colors[4]};--phone-2:${colors[5]}&quot;&gt;&lt;/div&gt;&lt;/div&gt;`}function render(){document.getElementById(&#x27;nm-kicker&#x27;).textContent=&#x27;Selección &#x27;+brand;document.getElementById(&#x27;nm-title&#x27;).textContent=brand===&#x27;Samsung&#x27;?&#x27;Diseño icónico. Rendimiento diario.&#x27;:brand===&#x27;Xiaomi&#x27;?&#x27;Más por lo que eliges.&#x27;:brand===&#x27;Tecno&#x27;?&#x27;Energía para seguir tu ritmo.&#x27;:brand===&#x27;Infinix&#x27;?&#x27;Potencia que acompaña tu día.&#x27;:&#x27;Tecnología que se siente tuya.&#x27;;brands.innerHTML=Object.keys(catalog).map(b=&gt;`&lt;button class=&quot;nm-brand&quot; type=&quot;button&quot; aria-pressed=&quot;${b===brand}&quot; data-brand=&quot;${b}&quot;&gt;${b}&lt;/button&gt;`).join(&#x27;&#x27;);const list=catalog[brand];document.getElementById(&#x27;nm-count&#x27;).textContent=list.length+&#x27; modelos en catálogo&#x27;;grid.innerHTML=list.map((p,i)=&gt;`&lt;article class=&quot;nm-product&quot;&gt;${phone(p)}&lt;div class=&quot;nm-info&quot;&gt;&lt;span class=&quot;nm-tag&quot;&gt;${i===0?&#x27;Más accesible&#x27;:i===1?&#x27;Recomendado&#x27;:&#x27;Alto rendimiento&#x27;}&lt;/span&gt;&lt;h3&gt;${brand} ${p[0]}&lt;/h3&gt;&lt;p class=&quot;nm-spec&quot;&gt;${p[1]}&lt;/p&gt;&lt;div class=&quot;nm-meta&quot;&gt;&lt;span class=&quot;nm-price&quot;&gt;${p[2]}&lt;/span&gt;&lt;span class=&quot;nm-stock&quot;&gt;${p[3]}&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;button class=&quot;nm-view&quot; type=&quot;button&quot; data-product=&quot;${i}&quot;&gt;Ver características →&lt;/button&gt;&lt;/article&gt;`).join(&#x27;&#x27;);const p=list[selected];detail.innerHTML=`${phone(p,true)}&lt;div&gt;&lt;span class=&quot;nm-tag&quot;&gt;Ficha del modelo&lt;/span&gt;&lt;h2&gt;${brand} ${p[0]} · ${p[2]}&lt;/h2&gt;&lt;p&gt;${p[3]} · ${p[1]}&lt;br&gt;${p[3].split(&#x27; &#x27;)[0] &lt;= 3 ? &#x27;Últimas unidades: la tienda podrá activar aviso de stock bajo.&#x27; : p[3]+&#x27; para reserva.&#x27;}&lt;br&gt;${p[3] &amp;&amp; p[3].split(&#x27; &#x27;)[0] ? p[3] : &#x27;&#x27;}&lt;/p&gt;&lt;/div&gt;&lt;button class=&quot;nm-cta&quot; type=&quot;button&quot;&gt;Reservar por WhatsApp&lt;/button&gt;`;brands.querySelectorAll(&#x27;[data-brand]&#x27;).forEach(el=&gt;el.onclick=()=&gt;{brand=el.dataset.brand;selected=0;render()});grid.querySelectorAll(&#x27;[data-product]&#x27;).forEach(el=&gt;el.onclick=()=&gt;{selected=+el.dataset.product;render();detail.scrollIntoView({behavior:&#x27;smooth&#x27;,block:&#x27;nearest&#x27;})})}render();const state={accent:&#x27;#7c5cff&#x27;,style:&#x27;Nébula oscuro&#x27;};function tweakRender(){root.style.setProperty(&#x27;--nm-accent&#x27;,state.accent);root.classList.toggle(&#x27;nm-light&#x27;,state.style===&#x27;Aurora claro&#x27;)}if(globalThis.Tweak){const tweak=new Tweak({container:root,onChange:tweakRender});tweak.addColorPicker(state,&#x27;accent&#x27;,{label:&#x27;Color principal&#x27;,reference:&#x27;--nm-accent&#x27;});tweak.addSelect(state,&#x27;style&#x27;,{label:&#x27;Estilo&#x27;,options:[&#x27;Nébula oscuro&#x27;,&#x27;Aurora claro&#x27;],reference:&#x27;style&#x27;})}})();
+  &lt;/script&gt;
+  &lt;script&gt;
+    (() =&gt; {
+      const root = document.getElementById(&#x27;nova-phone-prototype&#x27;);
+      root.addEventListener(&#x27;click&#x27;, (event) =&gt; {
+        if (!event.target.closest(&#x27;.nm-cta&#x27;)) return;
+        const model = document.getElementById(&#x27;nm-model-name&#x27;).textContent;
+        const text = encodeURIComponent(`Hola, quiero reservar el ${model}. ¿Sigue disponible?`);
+        window.open(`https://wa.me/59177254863?text=${text}`, &#x27;_blank&#x27;, &#x27;noopener&#x27;);
+      });
+    })();
+  &lt;/script&gt;
+&lt;/main&gt;
+&lt;script&gt;
+  (() =&gt; {
+    const root = document.getElementById(&#x27;nova-phone-prototype&#x27;);
+    const page = document.getElementById(&#x27;nm-model-page&#x27;);
+    root.addEventListener(&#x27;click&#x27;, (event) =&gt; {
+      const view = event.target.closest(&#x27;.nm-view&#x27;);
+      if (!view) return;
+      const product = view.closest(&#x27;.nm-product&#x27;);
+      const brand = document.getElementById(&#x27;nm-kicker&#x27;).textContent.replace(&#x27;Selección &#x27;, &#x27;&#x27;);
+      document.getElementById(&#x27;nm-model-name&#x27;).textContent = `${brand} ${product.querySelector(&#x27;h3&#x27;).textContent.replace(brand + &#x27; &#x27;, &#x27;&#x27;)}`;
+      document.getElementById(&#x27;nm-model-memory&#x27;).textContent = product.querySelector(&#x27;.nm-spec&#x27;).textContent;
+      document.getElementById(&#x27;nm-model-stock&#x27;).textContent = product.querySelector(&#x27;.nm-stock&#x27;).textContent;
+      document.getElementById(&#x27;nm-model-price&#x27;).textContent = product.querySelector(&#x27;.nm-price&#x27;).textContent;
+      document.getElementById(&#x27;nm-model-description&#x27;).textContent = &#x27;Ficha del equipo con precio, memoria y disponibilidad actualizada en tiempo real.&#x27;;
+      document.getElementById(&#x27;nm-model-visual&#x27;).innerHTML = product.querySelector(&#x27;.nm-phone-stage&#x27;).innerHTML;
+      page.classList.add(&#x27;nm-model-open&#x27;);
+      page.scrollIntoView({ behavior: &#x27;smooth&#x27;, block: &#x27;start&#x27; });
+    });
+    document.getElementById(&#x27;nm-close-model&#x27;).addEventListener(&#x27;click&#x27;, () =&gt; {
+      page.classList.remove(&#x27;nm-model-open&#x27;);
+      document.getElementById(&#x27;nm-products-title&#x27;).scrollIntoView({ behavior: &#x27;smooth&#x27;, block: &#x27;start&#x27; });
+    });
+  })();
+&lt;/script&gt;
+&lt;script&gt;
+  (() =&gt; {
+    const page = document.getElementById(&#x27;nm-model-page&#x27;);
+    const firstVisual = document.querySelector(&#x27;.nm-product .nm-phone-stage&#x27;);
+    if (firstVisual) document.getElementById(&#x27;nm-model-visual&#x27;).innerHTML = firstVisual.innerHTML;
+    page.classList.add(&#x27;nm-model-open&#x27;);
+  })();
+&lt;/script&gt;
+
+&lt;script src=&quot;https://unpkg.com/@floating-ui/core@1.7.3/dist/floating-ui.core.umd.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://unpkg.com/@floating-ui/dom@1.7.4/dist/floating-ui.dom.umd.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+(() =&gt; {
+  if (window.FloatingUIDOM == null) {
+    return;
+  }
+  const { autoUpdate, computePosition, flip, offset, shift, size } =
+    window.FloatingUIDOM;
+  const tooltipPlacements = new Set([&quot;top&quot;, &quot;right&quot;, &quot;bottom&quot;, &quot;left&quot;]);
+  const tooltipId = `codex-visualization-tooltip-${
+    window.crypto?.randomUUID?.() ?? Date.now().toString(36)
+  }`;
+  const tooltipGap = 5;
+  const hoverDelay = 700;
+  const skipDelay = 300;
+  let activeTrigger = null;
+  let pendingTrigger = null;
+  let tooltip = null;
+  let openTimeout = null;
+  let autoUpdateCleanup = null;
+  let positionRequest = 0;
+  let skipDelayUntil = 0;
+  let lastPointerWasTouch = false;
+  let pinnedByTouch = false;
+
+  const getTrigger = (target) =&gt;
+    target?.nodeType === Node.ELEMENT_NODE
+      ? target.closest(&quot;[data-tooltip]&quot;)
+      : null;
+  const containsTarget = (trigger, target) =&gt;
+    target?.nodeType != null &amp;&amp; trigger.contains(target);
+  const getContent = (trigger) =&gt;
+    trigger.getAttribute(&quot;data-tooltip&quot;)?.trim() ?? &quot;&quot;;
+  const getPlacement = (trigger) =&gt; {
+    const placement = trigger.getAttribute(&quot;data-tooltip-placement&quot;);
+    return tooltipPlacements.has(placement) ? placement : &quot;top&quot;;
+  };
+  const getTooltip = () =&gt; {
+    if (tooltip == null) {
+      tooltip = document.createElement(&quot;div&quot;);
+      tooltip.id = tooltipId;
+      tooltip.className = &quot;tooltip&quot;;
+      tooltip.setAttribute(&quot;role&quot;, &quot;tooltip&quot;);
+    }
+    return tooltip;
+  };
+  const setDescribedBy = (trigger, described) =&gt; {
+    const ids = new Set(
+      (trigger.getAttribute(&quot;aria-describedby&quot;) ?? &quot;&quot;)
+        .split(/\s+/)
+        .filter(Boolean),
+    );
+    if (described) {
+      ids.add(tooltipId);
+    } else {
+      ids.delete(tooltipId);
+    }
+    if (ids.size === 0) {
+      trigger.removeAttribute(&quot;aria-describedby&quot;);
+    } else {
+      trigger.setAttribute(&quot;aria-describedby&quot;, [...ids].join(&quot; &quot;));
+    }
+  };
+  const clearOpenTimeout = () =&gt; {
+    if (openTimeout != null) {
+      window.clearTimeout(openTimeout);
+      openTimeout = null;
+    }
+    pendingTrigger = null;
+  };
+  const closeTooltip = (activateSkipDelay = true) =&gt; {
+    clearOpenTimeout();
+    pinnedByTouch = false;
+    positionRequest += 1;
+    autoUpdateCleanup?.();
+    autoUpdateCleanup = null;
+    if (activeTrigger == null) {
+      return;
+    }
+    setDescribedBy(activeTrigger, false);
+    activeTrigger = null;
+    tooltip?.remove();
+    if (activateSkipDelay) {
+      skipDelayUntil = Date.now() + skipDelay;
+    }
+  };
+  const updatePosition = (trigger, floating) =&gt; {
+    const request = ++positionRequest;
+    void computePosition(trigger, floating, {
+      middleware: [
+        offset(tooltipGap),
+        flip({ padding: tooltipGap }),
+        shift({ padding: tooltipGap }),
+        size({
+          padding: tooltipGap,
+          apply({ availableHeight, availableWidth, elements }) {
+            elements.floating.style.setProperty(
+              &quot;--tooltip-available-width&quot;,
+              `${Math.max(0, availableWidth)}px`,
+            );
+            elements.floating.style.setProperty(
+              &quot;--tooltip-available-height&quot;,
+              `${Math.max(0, availableHeight)}px`,
+            );
+          },
+        }),
+      ],
+      placement: getPlacement(trigger),
+      strategy: &quot;fixed&quot;,
+    })
+      .then(({ x, y }) =&gt; {
+        if (activeTrigger !== trigger || request !== positionRequest) {
+          return;
+        }
+        const scale = window.devicePixelRatio || 1;
+        floating.style.transform = `translate(${Math.round(x * scale) / scale}px, ${Math.round(y * scale) / scale}px)`;
+        floating.style.visibility = &quot;visible&quot;;
+      })
+      .catch(() =&gt; {
+        if (activeTrigger === trigger &amp;&amp; request === positionRequest) {
+          closeTooltip(false);
+        }
+      });
+  };
+  const openTooltip = (trigger) =&gt; {
+    const content = getContent(trigger);
+    if (!trigger.isConnected || content.length === 0) {
+      return;
+    }
+    clearOpenTimeout();
+    if (activeTrigger === trigger) {
+      return;
+    }
+    closeTooltip();
+    const floating = getTooltip();
+    floating.textContent = content;
+    floating.style.visibility = &quot;hidden&quot;;
+    floating.style.transform = &quot;translate(0, 0)&quot;;
+    document.body.appendChild(floating);
+    activeTrigger = trigger;
+    setDescribedBy(trigger, true);
+    autoUpdateCleanup = autoUpdate(trigger, floating, () =&gt; {
+      updatePosition(trigger, floating);
+    });
+  };
+  const requestOpen = (trigger, immediate = false) =&gt; {
+    if (
+      getContent(trigger).length === 0 ||
+      activeTrigger === trigger ||
+      pendingTrigger === trigger
+    ) {
+      return;
+    }
+    clearOpenTimeout();
+    pendingTrigger = trigger;
+    const delay =
+      immediate || activeTrigger != null || Date.now() &lt; skipDelayUntil
+        ? 0
+        : hoverDelay;
+    if (delay === 0) {
+      openTooltip(trigger);
+      return;
+    }
+    openTimeout = window.setTimeout(() =&gt; {
+      openTimeout = null;
+      pendingTrigger = null;
+      openTooltip(trigger);
+    }, delay);
+  };
+  const handlePointerOpen = (event) =&gt; {
+    if (event.pointerType === &quot;touch&quot;) {
+      return;
+    }
+    const trigger = getTrigger(event.target);
+    if (trigger == null || containsTarget(trigger, event.relatedTarget)) {
+      return;
+    }
+    requestOpen(trigger);
+  };
+  const handlePointer = (event) =&gt; {
+    lastPointerWasTouch =
+      event.type === &quot;pointerdown&quot; &amp;&amp; event.pointerType === &quot;touch&quot;;
+  };
+  const handleTouchClick = (event) =&gt; {
+    const isTouch = event.pointerType === &quot;touch&quot; || lastPointerWasTouch;
+    lastPointerWasTouch = false;
+    if (!isTouch || event.detail === 0) {
+      return;
+    }
+    const trigger = getTrigger(event.target);
+    if (
+      trigger == null ||
+      !trigger.isConnected ||
+      getContent(trigger).length === 0 ||
+      (pinnedByTouch &amp;&amp; activeTrigger === trigger)
+    ) {
+      if (pinnedByTouch) {
+        closeTooltip();
+      }
+      return;
+    }
+    openTooltip(trigger);
+    pinnedByTouch = activeTrigger === trigger;
+    window.setTimeout(() =&gt; {
+      if (activeTrigger === trigger &amp;&amp; !trigger.isConnected) {
+        closeTooltip(false);
+      }
+    }, 0);
+  };
+  const handleLeave = (event) =&gt; {
+    if (pinnedByTouch) {
+      return;
+    }
+    const trigger = getTrigger(event.target);
+    if (trigger == null || containsTarget(trigger, event.relatedTarget)) {
+      return;
+    }
+    if (activeTrigger === trigger || pendingTrigger === trigger) {
+      closeTooltip();
+    }
+  };
+  const handleFocusIn = (event) =&gt; {
+    const trigger = getTrigger(event.target);
+    if (trigger?.matches(&quot;:focus-visible&quot;)) {
+      requestOpen(trigger, true);
+    }
+  };
+  const handleKeyDown = (event) =&gt; {
+    if (event.key === &quot;Escape&quot;) {
+      closeTooltip();
+    }
+  };
+  const handleContextMenu = (event) =&gt; {
+    lastPointerWasTouch = false;
+    const trigger = getTrigger(event.target);
+    if (activeTrigger === trigger || pendingTrigger === trigger) {
+      closeTooltip();
+    }
+  };
+  const destroy = () =&gt; {
+    closeTooltip(false);
+    lastPointerWasTouch = false;
+    document.removeEventListener(&quot;pointerover&quot;, handlePointerOpen);
+    document.removeEventListener(&quot;pointerdown&quot;, handlePointer);
+    document.removeEventListener(&quot;pointercancel&quot;, handlePointer);
+    document.removeEventListener(&quot;click&quot;, handleTouchClick);
+    document.removeEventListener(&quot;pointerout&quot;, handleLeave);
+    document.removeEventListener(&quot;focusin&quot;, handleFocusIn);
+    document.removeEventListener(&quot;focusout&quot;, handleLeave);
+    document.removeEventListener(&quot;keydown&quot;, handleKeyDown);
+    document.removeEventListener(&quot;contextmenu&quot;, handleContextMenu);
+    tooltip = null;
+  };
+
+  document.addEventListener(&quot;pointerover&quot;, handlePointerOpen);
+  document.addEventListener(&quot;pointerdown&quot;, handlePointer);
+  document.addEventListener(&quot;pointercancel&quot;, handlePointer);
+  document.addEventListener(&quot;click&quot;, handleTouchClick);
+  document.addEventListener(&quot;pointerout&quot;, handleLeave);
+  document.addEventListener(&quot;focusin&quot;, handleFocusIn);
+  document.addEventListener(&quot;focusout&quot;, handleLeave);
+  document.addEventListener(&quot;keydown&quot;, handleKeyDown);
+  document.addEventListener(&quot;contextmenu&quot;, handleContextMenu);
+  window.addEventListener(&quot;pagehide&quot;, destroy, { once: true });
+})();
+&lt;/script&gt;
+&lt;script id=&quot;codex-visualization-tabs&quot;&gt;
+(() =&gt; {
+  const selector = &#x27;.nav[role=&quot;tablist&quot;] [role=&quot;tab&quot;]&#x27;;
+  const disabled = &#x27;:disabled,[aria-disabled=&quot;true&quot;]&#x27;;
+  const selectTab = (selected) =&gt; {
+    const panelId = selected.getAttribute(&quot;aria-controls&quot;);
+    for (const tab of selected.closest(&#x27;[role=&quot;tablist&quot;]&#x27;).querySelectorAll(&#x27;[role=&quot;tab&quot;]&#x27;)) {
+      const active = tab === selected;
+      tab.classList.toggle(&quot;active&quot;, active);
+      tab.setAttribute(&quot;aria-selected&quot;, String(active));
+      const id = tab.getAttribute(&quot;aria-controls&quot;);
+      const panel = id &amp;&amp; document.getElementById(id);
+      if (panel != null) {
+        panel.hidden = id !== panelId;
+        if (!panel.hidden &amp;&amp; selected.id) {
+          panel.setAttribute(&quot;aria-labelledby&quot;, selected.id);
+        }
+      }
+    }
+  };
+  const interact = (event) =&gt; {
+    const tab = event.target?.closest?.(selector);
+    if (event.defaultPrevented || tab == null || tab.matches(disabled)) {
+      return;
+    }
+    if (event.type === &quot;click&quot;) {
+      selectTab(tab);
+      return;
+    }
+    const tabs = Array.from(
+      tab.closest(&#x27;[role=&quot;tablist&quot;]&#x27;).querySelectorAll(&#x27;[role=&quot;tab&quot;]&#x27;),
+    ).filter((candidate) =&gt; !candidate.matches(disabled));
+    const current = tabs.indexOf(tab);
+    let next;
+    if (event.key === &quot;ArrowRight&quot; || event.key === &quot;ArrowDown&quot;) {
+      next = (current + 1) % tabs.length;
+    } else if (event.key === &quot;ArrowLeft&quot; || event.key === &quot;ArrowUp&quot;) {
+      next = (current + tabs.length - 1) % tabs.length;
+    } else if (event.key === &quot;Home&quot;) {
+      next = 0;
+    } else if (event.key === &quot;End&quot;) {
+      next = tabs.length - 1;
+    } else {
+      return;
+    }
+    event.preventDefault();
+    tabs[next].focus();
+    selectTab(tabs[next]);
+  };
+
+  for (const list of document.querySelectorAll(&#x27;.nav[role=&quot;tablist&quot;]&#x27;)) {
+    const selected =
+      list.querySelector(&#x27;[role=&quot;tab&quot;][aria-selected=&quot;true&quot;]&#x27;) ??
+      list.querySelector(&#x27;[role=&quot;tab&quot;].active&#x27;) ??
+      list.querySelector(&#x27;[role=&quot;tab&quot;]&#x27;);
+    if (selected != null) {
+      selectTab(selected);
+    }
+  }
+  document.addEventListener(&quot;click&quot;, interact);
+  document.addEventListener(&quot;keydown&quot;, interact);
+  window.addEventListener(&quot;pagehide&quot;, () =&gt; {
+    document.removeEventListener(&quot;click&quot;, interact);
+    document.removeEventListener(&quot;keydown&quot;, interact);
+  }, { once: true });
+})();
+&lt;/script&gt;
+&lt;script id=&quot;codex-visualization-lucide&quot; async src=&quot;https://unpkg.com/lucide@1.17.0/dist/umd/lucide.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+(() =&gt; {
+  const initialize = () =&gt; {
+    globalThis.lucide?.createIcons({ attrs: { width: 16, height: 16 } });
+  };
+  if (globalThis.lucide != null) {
+    initialize();
+    return;
+  }
+  document
+    .getElementById(&quot;codex-visualization-lucide&quot;)
+    ?.addEventListener(&quot;load&quot;, initialize, { once: true });
+})();
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+"></iframe>
+</body>
+</html>
