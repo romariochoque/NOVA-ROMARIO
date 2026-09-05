@@ -5,6 +5,7 @@
   <title>NOVA MÓVIL | Tecnología medida al detalle</title>
   <meta name="description" content="Celulares disponibles en NOVA MÓVIL. Consulta stock real por WhatsApp.">
   <link rel="stylesheet" href="styles.css">
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
   <header class="top"><a class="logo" href="#inicio" aria-label="NOVA MÓVIL inicio"><b>N</b><span>NOVA <i>MÓVIL</i></span></a><a class="top-whatsapp" href="https://wa.me/59177254863?text=Hola%2C%20quiero%20consultar%20por%20un%20celular." target="_blank" rel="noopener">WhatsApp</a></header>
@@ -15,5 +16,12 @@
   <dialog id="productDialog"><button class="close" id="closeDialog" aria-label="Cerrar ficha">×</button><div id="dialogContent"></div></dialog>
   <footer><a class="logo" href="#inicio"><b>N</b><span>NOVA <i>MÓVIL</i></span></a><p>Consulta disponibilidad antes de reservar.</p><a href="https://wa.me/59177254863" target="_blank" rel="noopener">+591 77254863</a></footer>
   <script src="app.js"></script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on('init', function (user) {
+        if (!user) window.netlifyIdentity.on('login', function () { document.location.href = '/admin/'; });
+      });
+    }
+  </script>
 </body>
 </html>
