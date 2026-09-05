@@ -1,0 +1,34 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
+
+collections:
+  - name: "catalogo"
+    label: "Catálogo de celulares"
+    files:
+      - name: "equipos"
+        label: "Modelos, precios y stock"
+        file: "content/catalog.json"
+        format: "json"
+        fields:
+          - label: "Equipos"
+            name: "items"
+            widget: "list"
+            fields:
+              - {label: "Marca", name: "brand", widget: "select", options: ["HONOR", "INFINIX", "SAMSUNG", "TECNO", "XIAOMI"]}
+              - {label: "Modelo", name: "name", widget: "string"}
+              - {label: "Memoria", name: "memory", widget: "string", hint: "Ejemplo: 8 GB / 256 GB"}
+              - {label: "Precio en bolivianos", name: "price", widget: "number", value_type: "int", min: 0}
+              - {label: "Unidades disponibles", name: "stock", widget: "number", value_type: "int", min: 0}
+              - {label: "Color del equipo", name: "accent", widget: "color", default: "#d40020"}
+              - {label: "Procesador", name: "cpu", widget: "string"}
+              - {label: "Cámara principal", name: "main", widget: "string"}
+              - {label: "Cámara frontal", name: "front", widget: "string"}
+              - {label: "Batería y carga", name: "battery", widget: "string"}
+              - {label: "Pantalla", name: "display", widget: "string"}
+              - {label: "Resistencia", name: "resistance", widget: "string"}
+              - {label: "Dato destacado", name: "highlight", widget: "string", required: false}
+              - {label: "Ficha verificada", name: "verified", widget: "boolean", default: false}
